@@ -31,3 +31,11 @@ description: 一堆链接
 [https://generals.io/](https://generals.io/)
 
 [https://slay.one/](https://slay.one/)
+
+[https://zombs.io/](https://zombs.io/)
+
+[https://minigiants.io/](https://minigiants.io/)
+
+[https://warbot.io/](https://warbot.io/)
+
+[https://territorial.io/](https://territorial.io/)
