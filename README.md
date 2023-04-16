@@ -27,3 +27,7 @@ description: 一堆链接
 [https://nuggetroyale.io/](https://nuggetroyale.io/)
 
 [https://starblast.io/](https://starblast.io/)
+
+[https://generals.io/](https://generals.io/)
+
+[https://slay.one/](https://slay.one/)
