@@ -39,3 +39,13 @@ description: 一堆链接
 [https://warbot.io/](https://warbot.io/)
 
 [https://territorial.io/](https://territorial.io/)
+
+[https://littlebigsnake.com/](https://littlebigsnake.com/)
+
+[https://schoolbreak.io/](https://schoolbreak.io/)
+
+[https://shapez.io/](https://shapez.io/)
+
+[https://warbot.io/](https://warbot.io/)
+
+[https://surviv.io/](https://surviv.io/)
