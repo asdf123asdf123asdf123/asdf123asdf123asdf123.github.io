@@ -49,3 +49,11 @@ description: 一堆链接
 [https://warbot.io/](https://warbot.io/)
 
 [https://surviv.io/](https://surviv.io/)
+
+[https://beta.deeeep.io/](https://beta.deeeep.io/)
+
+[https://candybox2.github.io/](https://candybox2.github.io/)
+
+[http://adarkroom.doublespeakgames.com/?lang=zh_cn](http://adarkroom.doublespeakgames.com/?lang=zh_cn)
+
+[https://likexia.gitee.io/cat-zh/#](https://likexia.gitee.io/cat-zh/#)
