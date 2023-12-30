@@ -19,4 +19,5 @@ exit /B
 if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
 echo shutdown time?
 set /p a=
-schtasks  /create /tn %str% /tr "cmd /c schtasks /delete /f /tn %str%&taskkill -f -fi "imagename ne cmd.exe"" /sc  ONCE /st %a%  /rl HIGHEST
+schtasks  /create /tn %str% /tr "cmd /c schtasks /delete /f /tn %str%&taskkill -f -fi \"imagename ne cmd.exe\"&pause" /sc  ONCE /st %a%  /rl HIGHEST
+pause
