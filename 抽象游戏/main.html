@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ANSI">
+<title>抽象</title>
+<script>
+	mox=0;
+	moy=0;
+	bpx=0;
+	bpy=0;
+	closed=true;
+	cnt=0;
+	acnt=0;
+	cd=99999999;
+	window.onload=function(){
+		b=document.getElementById("game");
+		if(typeof localStorage["ahigh"]=="undefined")
+			localStorage["ahigh"]=0;
+		if(typeof localStorage["high"]=="undefined")
+			localStorage["high"]=0;
+		document.getElementById("nowclosed").innerText="now closed:"+acnt+"\thighest:"+localStorage["ahigh"]+"\nnow level:"+cnt+"\thighest:"+localStorage["high"];
+	};
+	window.addEventListener("mousemove",function (evt){
+		mox=evt.x;
+		moy=evt.y;
+	})
+	function ok(){
+		b.style.display="none";
+		cnt++;
+		acnt++;
+		localStorage["ahigh"]=Math.max(localStorage["ahigh"],acnt);
+		localStorage["high"]=Math.max(localStorage["high"],cnt);
+		document.getElementById("nowclosed").innerText="now closed:"+acnt+"\thighest:"+localStorage["ahigh"]+"\nnow level:"+cnt+"\thighest:"+localStorage["high"];
+		closed=true;
+	}
+	window.addEventListener("mousedown",function (evt){
+		if(b.style.display!="none"){
+			if(cd==0){
+				mox=evt.x;
+				moy=evt.y;
+				if(b.style.display!="none"&&bpx<=mox&&mox<=bpx+100&&bpy<=moy&&moy<=bpy+100)
+					ok();
+			}
+		}
+		else{
+			cd=10;
+			bpx=mox+Math.random()*10-5-50;
+			bpy=moy+Math.random()*10-5-50;
+			mox=evt.x;
+			moy=evt.y;
+			closed=false;
+			b.style.left=bpx+"px";
+			b.style.top=bpy+"px";
+			b.style.display="block";
+		}
+	})
+	document.addEventListener('contextmenu',function(e){
+		e.preventDefault();
+	})
+	function play(){
+		if(b.style.display!="none"){
+			if(cd==0)
+				b.innerText="Click me!";
+			else{
+				cd--;
+				b.innerText="Wait...";
+			}
+			var dx=mox-bpx-50,dy=moy-bpy-50,sqs=Math.sqrt(dx*dx+dy*dy);
+			dx/=sqs;
+			dy/=sqs;
+			bpx-=dx*cnt;
+			bpy-=dy*cnt;
+			b.style.left=bpx+"px";
+			b.style.top=bpy+"px";
+			if(bpx<=-100||bpy<=-100||bpx>=innerWidth||bpy>=innerHeight){
+				cnt-=2;
+				acnt--;
+				ok();
+			}
+		}
+	}
+	setInterval(play,20);
+</script>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+<style>
+body{
+	overflow: hidden;
+	user-select: none;
+	cursor: default;
+}
+</style>
+<body>
+<h1 id="nowclosed"></h1>
+<text>鼠标点击生成按钮，生成后等待一小会儿再用鼠标点击它</text>
+<button id="game" style="position:absolute;width:100px;height:100px;display:none;left:0px;top:0px;">Click me!</button>
+</body>
+</html>
