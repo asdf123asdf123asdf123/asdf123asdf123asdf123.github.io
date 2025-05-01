@@ -18,19 +18,25 @@
 			localStorage["ahigh"]=0;
 		if(typeof localStorage["high"]=="undefined")
 			localStorage["high"]=0;
-		document.getElementById("nowclosed").innerText="now closed:"+acnt+"\thighest:"+localStorage["ahigh"]+"\nnow level:"+cnt+"\thighest:"+localStorage["high"];
+		document.getElementById("nowclosed").innerText="now closed:"+acnt+"\thighest:"+localStorage["ahigh"]+"\nnow difficulty:"+cnt+"\thighest:"+localStorage["high"];
 	};
-	window.addEventListener("mousemove",function (evt){
+	window.addEventListener("mousemove",function(evt){
 		mox=evt.x;
 		moy=evt.y;
 	})
+	document.addEventListener('keyup',function(evt){
+		if(evt.key==' '){
+			cnt+=10;
+			document.getElementById("nowclosed").innerText="now closed:"+acnt+"\thighest:"+localStorage["ahigh"]+"\nnow difficulty:"+cnt+"\thighest:"+localStorage["high"];
+		}
+	});
 	function ok(){
 		b.style.display="none";
 		cnt++;
 		acnt++;
 		localStorage["ahigh"]=Math.max(localStorage["ahigh"],acnt);
 		localStorage["high"]=Math.max(localStorage["high"],cnt);
-		document.getElementById("nowclosed").innerText="now closed:"+acnt+"\thighest:"+localStorage["ahigh"]+"\nnow level:"+cnt+"\thighest:"+localStorage["high"];
+		document.getElementById("nowclosed").innerText="now closed:"+acnt+"\thighest:"+localStorage["ahigh"]+"\nnow difficulty:"+cnt+"\thighest:"+localStorage["high"];
 		closed=true;
 	}
 	window.addEventListener("mousedown",function (evt){
@@ -73,9 +79,10 @@
 			b.style.left=bpx+"px";
 			b.style.top=bpy+"px";
 			if(bpx<=-100||bpy<=-100||bpx>=innerWidth||bpy>=innerHeight){
-				cnt-=2;
-				acnt--;
-				ok();
+				cnt--;
+				b.style.display="none";
+				document.getElementById("nowclosed").innerText="now closed:"+acnt+"\thighest:"+localStorage["ahigh"]+"\nnow difficulty:"+cnt+"\thighest:"+localStorage["high"];
+				closed=true;
 			}
 		}
 	}
@@ -93,6 +100,10 @@ body{
 <body>
 <h1 id="nowclosed"></h1>
 <text>鼠标点击生成按钮，生成后等待一小会儿再用鼠标点击它。多试几次试试？</text>
-<button id="game" style="position:absolute;width:100px;height:100px;display:none;left:0px;top:0px;">Click me!</button>
+<br>
+<text>太简单了？按键盘空格键直接加难度！</text>
+<br>
+<text>你能通过难度为 30 吗？</text>
+<button id="game" style="position:absolute;width:100px;height:100px;display:none;left:0px;top:0px;">Wait...</button>
 </body>
 </html>
