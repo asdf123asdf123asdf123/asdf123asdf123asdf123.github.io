@@ -111,7 +111,7 @@ const WEAK_PROVINCE_MIN_ABILITY = 20.0;
 const WEAK_PROVINCE_MAX_ABILITY = 45.0;
 
 //初始能力
-const KNOWLEDGE_ABLILTY_START = 150;
+const KNOWLEDGE_ABLILTY_START = 15000;
 
 /* 难度修正 */
 const EASY_MODE_BUDGET_MULTIPLIER = 1.5;  // 简单模式：预算增加50%（原1.15）
@@ -271,7 +271,7 @@ const EVICT_REPUTATION_COST = 10;
 
 /* =========== 失误系统 =========== */
 // 失误概率基础参数
-const MISTAKE_BASE_PROBABILITY = 0.15;  // 代码能力为0时的基础失误概率
+const MISTAKE_BASE_PROBABILITY = 0;  // 代码能力为0时的基础失误概率
 const MISTAKE_MIN_PROBABILITY = 0.02;   // 最低失误概率（代码能力>=100时）
 const MISTAKE_CODING_FACTOR = 0.0013;   // 代码能力对失误概率的影响系数（每点代码能力降低0.13%失误概率）
 
